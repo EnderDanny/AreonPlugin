@@ -2,22 +2,26 @@
 # ##                                                ##
 # #               AREONSYSTEM VON Danny              #
 # #                                                  #
-# #               SPIGOT VERSION: 1.12.2              #
+# #               SPIGOT VERSION: 1.12.2             #
 # #                                                  #
-# #         PLUGIN VERSION: 1.0 RELEASE       #
+# #            PLUGIN VERSION: 1.2 RELEASE           #
 # ##                                                ##
 # ####################################################
 
 Prefix:
   Prefix: '&b&lAREON &7| '
+Tab:
+  Tab: '&b&lAREON'
 
 useChatFormat: true
 useColorTranslate: true
 # patchholder -> %chatPrefix%, %playerName%, %message%, %ping%, %displayName%, %group%
-chatFormat: '%chatPrefix%%playerName% &8\xbb &7%message%'
+chatFormat: '%chatPrefix%%playerName% &8| &7%message%'
 # update automatically the Tablist
 autoUpdate: true
 # format -> "group;tabPrefix;chatPrefix"
 prefixes:
-  - "owner;&4Owner &7| &4;&4Owner &7- &4"
-  - "default;&7Player &7| ;&7Player - "
+  - 'leitung;&4Leitung &7| &4;&4Leitung &7- &4 '
+  - 'producer;&cProducer &7| ;&cProducer - '
+  - 'builder;&aBuilder &7| ;&aBuilder - '
+  - 'default;&7Besucher &7| ;&7Besucher - '

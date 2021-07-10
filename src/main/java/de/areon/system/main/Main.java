@@ -30,6 +30,8 @@ public final class Main extends JavaPlugin {
 
     public static String Prefix;
 
+    public static String Tab;
+
     private static Main plugin;
 
     private static LuckPerms luckPermsApi;
@@ -109,6 +111,11 @@ public final class Main extends JavaPlugin {
         saveConfig();
         if (getConfig().getString("Prefix.Prefix") != null)
             Prefix = getConfig().getString("Prefix.Prefix").replaceAll("&", "§");
+
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+        if (getConfig().getString("Tab.Tab") != null)
+            Tab = getConfig().getString("Tab.Tab").replaceAll("&", "§");
     }
 
     private void loadListener(PluginManager pluginManager) {

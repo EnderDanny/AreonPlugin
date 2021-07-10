@@ -1,6 +1,7 @@
 package de.areon.system.listener;
 
 import com.connorlinfoot.titleapi.TitleAPI;
+import de.areon.system.data.Data2;
 import de.areon.system.utils.ItemActionbarManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,8 +23,8 @@ public class sendTabListener implements Listener {
         SimpleDateFormat date = new SimpleDateFormat("dd.MM.yyyy HH.mm.ss");
         String zeit = date.format(new Date());
 
-        TitleAPI.sendTabTitle(p, "\n §7------ §9§lAREON §b§lFilmteam §7------\n",  "\n §7------ §b§lBauserver §7------\n");
+        TitleAPI.sendTabTitle(p, "\n §7------ " + String.valueOf(Data2.Tab) + "§b§lFilmteam §7------\n",  "\n §7------ §b§lBauserver §7------\n");
 
-        ItemActionbarManager.sendTitle1(p.getPlayer(), 10, 10, 100, "Moin", "§bWillkommen §7" + p.getName());
+        ItemActionbarManager.sendTitle1(p.getPlayer(), 10, 10, 100, String.valueOf(Data2.Tab), "§bWillkommen §7" + p.getName());
     }
 }

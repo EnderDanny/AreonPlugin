@@ -10,4 +10,6 @@ public class Data2 {
 
     public static String NoPerm = String.valueOf(Prefix) + "hast keine Rechte um dies zu tun!";
 
+    public static String Tab = Main.Tab;
+
 }
