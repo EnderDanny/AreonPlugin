@@ -14,7 +14,7 @@ public class ChatListener implements Listener {
         String message = event.getMessage().replace("%", "%%");
         if (Main.getConfigManager().exist("chatFormat"))
             event.setFormat(Main.getConfigManager().getString("chatFormat").formatColors()
-            .replace("chatPrefix", PlayerConverter.getChatPrefix(event.getPlayer()))
+            .replace("%chatPrefix%", PlayerConverter.getChatPrefix(event.getPlayer()))
             .replace("%playerName%", event.getPlayer().getName())
             .replace("%message%", translateColorCodes(event.getPlayer(), message))
             .replace("%ping%", Main.getNms().getPing(event.getPlayer()) + "ms")
@@ -33,6 +33,9 @@ public class ChatListener implements Listener {
     private static final Pattern chatUnderlinePattern = Pattern.compile("(?i)&([N])");
 
     private static final Pattern chatItalicPattern = Pattern.compile("(?i)&([O])");
+
+
+
 
     public static String translateColorCodes(Player player, String message) {
         if (!Main.getConfigManager().getBoolean("useColorTranslate").booleanValue() && Main.getConfigManager().exist("useColorTranslate"))

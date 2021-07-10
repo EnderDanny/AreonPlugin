@@ -6,5 +6,5 @@ chatFormat: '%chatPrefix%%playerName% &8\xbb &7%message%'
 autoUpdate: true
 # format -> "group;tabPrefix;chatPrefix"
 prefixes:
-  - "owner;&4Owner &7\xbb &4;&4Owner &7- &4"
-  - "default;&7Player \xbb ;&7Player - "
+  - "owner;&4Owner &7| &4;&4Owner &7- &4"
+  - "default;&7Player &7| ;&7Player - "

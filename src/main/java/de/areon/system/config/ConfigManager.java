@@ -16,10 +16,10 @@ public class ConfigManager {
 
     private File file;
 
-    public ConfigManager(Main main) {
-        this.main = main;
-        this.fileConfiguration = main.getConfig();
-        this.file = new File(main.getDataFolder().getPath(), "config.yml");
+    public ConfigManager(Main Areon) {
+        this.main = Areon;
+        this.fileConfiguration = Areon.getConfig();
+        this.file = new File(Areon.getDataFolder().getPath(), "config.yml");
     }
 
     public ConfigManager copyDefaults() {

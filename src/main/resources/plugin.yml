@@ -1,3 +1,22 @@
-name: Main
+name: Areon
+author: Danny
 version: ${project.version}
 main: de.areon.system.main.Main
+depend:
+  - LuckPerms
+
+commands:
+  tools:
+    description: Ein cmd zum Blöcke holen
+  rang:
+    description: Ein cmd zum Blöcke holen
+  help:
+    description: Ein cmd zum Blöcke holen
+  gm:
+    description: Ein cmd zum Blöcke holen
+  gamemode:
+    description: Ein cmd zum Blöcke holen
+  speed:
+    description: Ein cmd zum Blöcke holen
+  id:
+    description: Ein cmd zum Blöcke holen
