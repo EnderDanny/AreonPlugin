@@ -14,6 +14,8 @@ import de.areon.system.utils.IdsUtils;
 import de.areon.system.utils.UserObject;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -25,6 +27,10 @@ import java.util.List;
 public final class Main extends JavaPlugin {
 
     private static Main instance;
+
+    public static String Prefix;
+
+    private static Main plugin;
 
     private static LuckPerms luckPermsApi;
 
@@ -55,17 +61,23 @@ public final class Main extends JavaPlugin {
     }
 
     public static String Areon = "§8❙ §9§lAREON §8• §7";
+
     public static IdsUtils idsUtils;
+
+
 
     @Override
     public void onEnable() {
         instance = this;
+        plugin = this;
         idsUtils = new IdsUtils();
         configManager = (new ConfigManager(this)).copyDefaults();
         loadNMS();
         loadLuckPerms();
         loadListener(Bukkit.getPluginManager());
+        saveDefaultConfig();
         loadCommands();
+        loadConfig();
         loadUserObjects();
         log("§aPlugin geladen.");
         log("§9Verison: §bv" + getDescription().getVersion());
@@ -84,6 +96,21 @@ public final class Main extends JavaPlugin {
 
     public void onDisable() {}
 
+    public static Main getPlugin() {
+        return plugin;
+    }
+
+    public void loadConfig() {
+        FileConfiguration cfg = getConfig();
+        cfg.options().copyDefaults(true);
+        saveConfig();
+
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+        if (getConfig().getString("Prefix.Prefix") != null)
+            Prefix = getConfig().getString("Prefix.Prefix").replaceAll("&", "§");
+    }
+
     private void loadListener(PluginManager pluginManager) {
         pluginManager.registerEvents((Listener)new JoinListener(), (Plugin)this);
         if (configManager.getBoolean("useChatFormat").booleanValue() && configManager.exist("useChatFormat"))
@@ -92,6 +119,8 @@ public final class Main extends JavaPlugin {
 
     private void loadCommands() {
     }
+
+    String Pr = getConfig().getString("Config.Prefix-Rm");
 
     private void loadLuckPerms() {
         Plugin luckPerms = Bukkit.getPluginManager().getPlugin("LuckPerms");
@@ -123,4 +152,6 @@ public final class Main extends JavaPlugin {
     public static void log(String message) {
         Bukkit.getConsoleSender().sendMessage(Data.getPrefix() + message);
     }
+
+
 }

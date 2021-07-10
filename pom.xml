@@ -6,7 +6,7 @@
 
     <groupId>de.areon.system</groupId>
     <artifactId>areon</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>Main</name>
