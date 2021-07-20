@@ -20,3 +20,5 @@ commands:
     description: Ein cmd zum Blöcke holen
   id:
     description: Ein cmd zum Blöcke holen
+  restart:
+    description: Ein cmd zum Blöcke holen

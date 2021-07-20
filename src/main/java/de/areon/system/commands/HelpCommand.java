@@ -14,8 +14,8 @@ public class HelpCommand implements CommandExecutor {
                 p.sendMessage("§f----§9Areon Hilfseite§f----");
                 p.sendMessage("§c/tool §f-> §7Öffne das Tool Menü");
                 p.sendMessage("§c/gm §f-> §7Ändert die Gamemodes");
-                p.sendMessage("§c/neustart §f-> §7Startet denn Server neu");
                 p.sendMessage("§c/rang §f-> §7Ändert den Rang eines Spielers");
+                p.sendMessage("§c/restart §f-> §7Restarte den Server nei");
                 p.sendMessage("§f----§9Areon Hilfseite§f----");
             } else {
                 p.sendMessage("§f----§9Areon Hilfseite§f----");

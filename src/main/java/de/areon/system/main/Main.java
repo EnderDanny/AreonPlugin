@@ -26,11 +26,13 @@ import java.util.List;
 
 public final class Main extends JavaPlugin {
 
-    private static Main instance;
+    public static Main instance;
 
     public static String Prefix;
 
     public static String Tab;
+
+    public static Main system;
 
     private static Main plugin;
 
@@ -75,6 +77,7 @@ public final class Main extends JavaPlugin {
         idsUtils = new IdsUtils();
         configManager = (new ConfigManager(this)).copyDefaults();
         loadNMS();
+        system = this;
         loadLuckPerms();
         loadListener(Bukkit.getPluginManager());
         saveDefaultConfig();
@@ -94,6 +97,8 @@ public final class Main extends JavaPlugin {
         getCommand("help").setExecutor(new HelpCommand());
         getCommand("speed").setExecutor(new SpeedCommand());
         getCommand("id").setExecutor(new IdCommand());
+        getCommand("restart").setExecutor(new RStartCommand());
+
     }
 
     public void onDisable() {}
