@@ -1,5 +1,8 @@
 package de.areon.system.main;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -11,11 +14,17 @@ import de.areon.system.listener.*;
 import de.areon.system.nms.BetterNMS;
 import de.areon.system.nms.NMS;
 import de.areon.system.utils.IdsUtils;
+import de.areon.system.utils.PlayerUtils;
 import de.areon.system.utils.UserObject;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -24,7 +33,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
 
-public final class Main extends JavaPlugin {
+public final class Main extends JavaPlugin implements CommandExecutor {
+
+    ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+
+    String command = "restart";
+
+    int i = 600;
 
     public static Main instance;
 
@@ -72,6 +87,16 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask((Plugin)this, new Runnable() {
+            public void run() {
+                DateFormat dateformat = new SimpleDateFormat("HH:mm");
+                Date date = new Date();
+                String first = Main.this.getConfig().getString("first");
+                if (dateformat.format(date).equals(first))
+                    Bukkit.dispatchCommand((CommandSender)Main.this.console, Main.this.command);
+            }
+        },0L, 1200L);
+
         instance = this;
         plugin = this;
         idsUtils = new IdsUtils();
@@ -98,6 +123,9 @@ public final class Main extends JavaPlugin {
         getCommand("speed").setExecutor(new SpeedCommand());
         getCommand("id").setExecutor(new IdCommand());
         getCommand("restart").setExecutor(new RStartCommand());
+
+
+
 
     }
 
@@ -164,6 +192,8 @@ public final class Main extends JavaPlugin {
     public static void log(String message) {
         Bukkit.getConsoleSender().sendMessage(Data.getPrefix() + message);
     }
+
+
 
 
 }

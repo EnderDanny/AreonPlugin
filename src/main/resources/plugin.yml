@@ -22,3 +22,5 @@ commands:
     description: Ein cmd zum Blöcke holen
   restart:
     description: Ein cmd zum Blöcke holen
+  AutoRestart:
+    description: Ein cmd zum Blöcke holen

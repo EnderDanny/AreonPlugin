@@ -11,7 +11,7 @@
 Prefix:
   Prefix: '&b&lAREON &7| '
 Tab:
-  Tab: '&b&lAREON'
+  Tab: '&b&lAREON &b&lFilmteam'
 
 useChatFormat: true
 useColorTranslate: true
@@ -25,3 +25,42 @@ prefixes:
   - 'producer;&cProducer &7| ;&cProducer - '
   - 'builder;&aBuilder &7| ;&aBuilder - '
   - 'default;&7Besucher &7| ;&7Besucher - '
+
+# #AutoRestart
+
+first: "18:19"
+
+
+
+Message:
+  enable: true
+  10min: "Restart in 10 minutes !"
+  5min: "Restart in 5 minutes !"
+  1min: "Restart in 1 minutes !"
+  30sec: "Restart in 30 seconds !"
+  sec: "Restart in {SEC} seconds !"
+  final: "Restart !"
+
+
+Title:
+  enable: true
+  10min:
+    line1: "Restart in"
+    line2: "10 minutes !"
+  5min:
+    line1: "Restart in"
+    line2: "5 minutes !"
+  1min:
+    line1: "Restart in"
+    line2: "1 minutes !"
+  30sec:
+    line1: "Restart in"
+    line2: "30 seconds !"
+  sec:
+    line1: "Restart in"
+    line2: "{SEC} seconds !"
+  final:
+    line1: "Restart "
+    line2: "..."
+
+perm: "autorestart.command"
